@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,46 +7,50 @@ using System.IO;
 
 public class OutputMain : MonoBehaviour
 {
-    public InputField inputFieldChat;
-
-    //void CreateText()
-    //{
-    //    //path of the file
-    //    string path = Application.dataPath + "/Log.txt";
-    //    //create File if it doesn't exist
-    //    if (!File.Exists(path))
-    //    {
-    //        File.WriteAllText(path, "Login log \n\n");
-    //    }
-    //    //content of the file
-    //    string content = "Login date: " + System.DateTime.Now + "\n";
-    //    //Add some text to it
-    //    File.AppendAllText(path, content); 
-    //}
-
-    // Start is called before the first frame update
+    // public InputField inputFieldChat;
+    string fileName;
+    int score_log;
     void Start()
     {
         Debug.LogWarning(Application.streamingAssetsPath);
-
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Score_Logs/");
+
         CreateTextFile();
+        ReadFile();
+        WriteFile();
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void WriteFile()
     {
+        score_log += ScriptCalculation.score;
+        using(StreamWriter writer = new StreamWriter(fileName)){
+            writer.WriteLine(score_log.ToString());
+        }
+    }
+
+    void ReadFile()
+    {
+        string input;
+        using(StreamReader reader = new StreamReader(fileName)){
+            input = reader.ReadLine();
+        }
+        try{
+            score_log = Convert.ToInt32(input);
+        }
+        catch{
+            Debug.Log("Score not properly logged");
+        }
 
     }
 
     void CreateTextFile()
     {
-        string fileName = Application.streamingAssetsPath + "/Score_Logs/" + "ScoreLevel1" + ".txt";
+        fileName = Application.streamingAssetsPath + "/Score_Logs/" + "PlayerScore" + ".txt";
 
         if (!File.Exists(fileName))
         {
-            File.WriteAllText(fileName, "Score Level 1 LOG" + "\n");
+            File.WriteAllText(fileName, "0");
         }
     }
 }
