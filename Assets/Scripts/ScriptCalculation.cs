@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 public class ScriptCalculation : MonoBehaviour
 {
     // Start is called before the first frame update
-    // private float
-    public int puzzlePhoto = Connect.photo;
 
     private float startTime;
     public static int count;
@@ -18,8 +16,8 @@ public class ScriptCalculation : MonoBehaviour
     public float scoreCal;
     void Start()
     {
-        Debug.Log(Connect.photo);
-        // SetPuzzlePhoto(Connect.photo);
+        //Debug.Log(Connect.pNum, Connect.pieceNum);
+        SetPuzzlePhoto(Connect.pNum, Connect.pieceNum);
         startTime = 0;
         count = 0;
     }
@@ -42,13 +40,12 @@ public class ScriptCalculation : MonoBehaviour
         SceneManager.LoadScene("FinishGame");
     }
 
-    // int pieceNum = Connect.level;
-    // public void SetPuzzlePhoto(Image photo){
-    //     // GameObject[] Pieces_;
-    //     for (int i = 0; i < pieceNum; ++i){
-    //         GameObject.Find("puzzle_" + i);
-    //         GetComponent<SpriteRenderer>().sprite = photo.sprite;
+    public void SetPuzzlePhoto(int pNum, int pieceNum){
+        // GameObject[] Pieces_;
+        Image photo = GameObject.Find("Picture" + pNum).GetComponent<Image>();
+        for (int i = 0; i < pieceNum; ++i){
+           GameObject.Find("puzzle_" + i).transform.Find("puzzle").GetComponent<SpriteRenderer>().sprite = photo.sprite;
 
-    //     }
-    // }
+        }
+    }
 }

@@ -345,10 +345,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1922567383}
         m_TargetAssemblyTypeName: Connect, Assembly-CSharp
         m_MethodName: LoadGame
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 178760109}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Picture2
@@ -1467,10 +1467,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1922567383}
         m_TargetAssemblyTypeName: Connect, Assembly-CSharp
         m_MethodName: LoadGame
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1822991844}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Picture1
@@ -1543,9 +1543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d2c9ce8a7e048e18a8281f5aa75c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  Easy: {fileID: 2005272527}
-  Hard: {fileID: 1214936564}
+  Easy: {fileID: 2005272529}
+  Hard: {fileID: 1214936566}
   picture1: {fileID: 1822991844}
   picture2: {fileID: 178760109}
 --- !u!4 &1922567384
