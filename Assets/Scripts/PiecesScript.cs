@@ -12,6 +12,7 @@ public class PiecesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ScriptCalculation.count = 0;
         updateFlag = false;
         RightPosition = transform.position;
         transform.position = new Vector2(Random.Range(-1.7f,1.7f), Random.Range(-4.3f, -2.3f));

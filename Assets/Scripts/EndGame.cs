@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,11 @@ public class EndGame : MonoBehaviour
 {
     public TextMeshProUGUI TimeText;
     public TextMeshProUGUI ScoresText;
-    private string time = "1:20";
-    private int scores = 1000;
+    private string time = "" + Convert.ToInt32(ScriptCalculation.timeUsed) + "s";
+    private int scores = ScriptCalculation.score;
     // Score thresholds
-    private int twoStar = 500;
-    private int oneStar = 200;
+    private int twoStar = 1000;
+    private int oneStar = 500;
 
     public Image Background;
     public Sprite GOOD, GREAT, EXCELLENT;
@@ -38,18 +39,23 @@ public class EndGame : MonoBehaviour
     }
 
     public void playAgain(){
-        SceneManager.LoadScene("16Pieces");
+        if(Connect.pieceNum == 12){
+            SceneManager.LoadScene("12Pieces");
+        }
+        if(Connect.pieceNum == 9){
+            SceneManager.LoadScene("9Pieces");
+        }
     }
 
     void initiateBackground(){
         if(scores >= twoStar){
-            Background.sprite = GOOD;
+            Background.sprite = EXCELLENT;
         }
         else if (scores >= oneStar){
             Background.sprite = GREAT;
         } 
         else {
-            Background.sprite = EXCELLENT;
+            Background.sprite = GOOD;
         }
     }
 

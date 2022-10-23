@@ -41,7 +41,7 @@ public class Connect : MonoBehaviour
         }
 
         if(level2Clicked){
-            SceneManager.LoadScene("16Pieces");
+            SceneManager.LoadScene("12Pieces");
         }
 
     }
@@ -66,7 +66,7 @@ public class Connect : MonoBehaviour
     {
         level2Clicked = true;
         Hard.interactable = false;
-        pieceNum = 16;
+        pieceNum = 12;
         picture1.SetActive(level2Clicked);//picture1 is activated if the level is clicked
         picture2.SetActive(level2Clicked);//picture2 is activated if the level is clicked
 
