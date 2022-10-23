@@ -19,7 +19,7 @@ public class Connect : MonoBehaviour
 
     private bool level1Clicked = false;
     private bool level2Clicked = false;
-    private bool pictureClicked = false;
+    //private bool pictureClicked = false;
 
     public void Start()
     {
