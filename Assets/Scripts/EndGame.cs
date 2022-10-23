@@ -11,7 +11,7 @@ public class EndGame : MonoBehaviour
 {
     public TextMeshProUGUI TimeText;
     public TextMeshProUGUI ScoresText;
-    private string time = "" + Convert.ToInt32(ScriptCalculation.timeUsed) + "s";
+    // private string time = "" + Convert.ToInt32(ScriptCalculation.timeUsed) + "s";
     private int scores = ScriptCalculation.score;
     // Score thresholds
     private int twoStar = 1000;
@@ -61,7 +61,13 @@ public class EndGame : MonoBehaviour
 
     void SetText()
     {
-        TimeText.text = time;
+        var minutes = (int) (ScriptCalculation.timeUsed / 60);
+        var minute = minutes.ToString() + "m";
+        var second = (int) (ScriptCalculation.timeUsed - (minutes*60));
+        var seconds = second.ToString();
+        if(seconds.Length == 1){seconds = "0" + seconds;}
+        seconds = seconds + "s";
+        TimeText.text = minute + ":"+seconds;
         ScoresText.text = scores.ToString();
     }
 }

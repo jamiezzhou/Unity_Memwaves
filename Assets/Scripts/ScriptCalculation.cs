@@ -26,8 +26,8 @@ public class ScriptCalculation : MonoBehaviour
     {
         Debug.Log(Connect.pNum);
         Debug.Log(Connect.pieceNum);
+        startTime = Time.time;
         SetPuzzlePhoto(Connect.pNum, Connect.pieceNum);
-        startTime = 0;
         // count = 0;
     }
 

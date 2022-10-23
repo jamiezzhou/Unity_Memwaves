@@ -12,6 +12,7 @@ public class Connect : MonoBehaviour
     public static int pieceNum;
     public static int pNum;
 
+    public Button button;
     public Button Easy;
     public Button Hard;
     public GameObject picture1;
@@ -44,6 +45,11 @@ public class Connect : MonoBehaviour
             SceneManager.LoadScene("12Pieces");
         }
 
+    }
+
+    public void goBack(){
+        Debug.Log("Quit!!");
+        Application.Quit();
     }
 
     public void Level1()
